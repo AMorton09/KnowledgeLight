@@ -1,0 +1,19 @@
+{
+  "name": "knowledgeLight",
+  "version": "1.0.0",
+  "description": "Application to gauge the learning of students",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4",
+    "body-parser": "^1.18.2",
+    "express-handlebars": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo Beep Boop Bop",
+    "start": "node app.js"
+  },
+  "repository": "https://github.com/AMorton09/knowledgeLight.git",
+  "author": "Andrew Morton <morton09@me.com>",
+  "license": "MIT"
+}
