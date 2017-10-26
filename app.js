@@ -8,10 +8,11 @@ const Class = require('./mongo/models/ClassModel')
 
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-app.listen('8080');
+
+app.set('port', process.env.app_port || 8080);
 app.disable("x-powered-by");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use('/public', express.static(__dirname + "/views/public"));
 mongoose.connect(dbConfig.url);
 
@@ -19,29 +20,40 @@ console.log("hello its me i think im self aware");
 console.log("I Believe to be running on port 8080");
 
 
-
 app.get('/', (req, res) => {
-    Class.find( (err, classes)=>{
+    Class.find((err, classes) => {
         if (err) return console.error(err);
         console.log(classes);
-        res.render('home',{ Class: classes })
+        res.render('home', {Class: classes})
     })
 
 });
 
-app.get('/redLight', (req,res) => {
+app.get('/redLight', (req, res) => {
     res.render('redlight')
 })
 
-app.post('/selectClass',(req,res) =>{
-   res.render('redlight')
+app.post('/selectClass', (req, res) => {
+    console.log(req.body);
+    console.log(req.body.classID);
+    Class.findById(req.body.classID, function (err, classObj) {
+        if(!err){
+            console.log(classObj);
+            res.render('redlight', {Class: classObj})
+        }
+        else{
+            console.log(err);
+        }
+
+    });
+
 });
 
 app.post("/createClass", (req, res) => {
     console.log(req.body.className);
     let newClass = Class({
-        className : req.body.className,
-        red : 0,
+        className: req.body.className,
+        red: 0,
         yellow: 0,
         green: 0
     });
@@ -62,7 +74,7 @@ app.post("/addYellow", (req, res) => {
 });
 
 app.post("/addGreen", (req, res) => {
-  
+
 });
 
 
