@@ -9,8 +9,8 @@ const Class = require('./mongo/models/ClassModel')
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.set('port', process.env.app_port || 8080);
-app.listen('8080');
+app.listen('3000');
+
 app.disable("x-powered-by");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -18,7 +18,7 @@ app.use('/public', express.static(__dirname + "/views/public"));
 mongoose.connect(dbConfig.url);
 
 console.log("hello its me i think im self aware");
-console.log("I Believe to be running on port 8080");
+console.log("I Believe to be running on port 3000");
 
 
 app.get('/', (req, res) => {
@@ -63,7 +63,7 @@ app.post("/createClass", (req, res) => {
 
         console.log('Class saved successfully!');
     });
-    res.render('home');
+    res.redirect('/');
 });
 
 app.post("/addRed", (req, res) => {
