@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 const classSchema = new mongoose.Schema({
     className : String,
-    red : String,
-    yellow: String,
-    green: String
+    red : Number,
+    yellow: Number,
+    green: Number
 });
 
 

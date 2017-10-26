@@ -10,6 +10,7 @@ app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.set('port', process.env.app_port || 8080);
+app.listen('8080');
 app.disable("x-powered-by");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
