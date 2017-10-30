@@ -14,7 +14,7 @@ app.listen(process.env.PORT || 3000);
 app.disable("x-powered-by");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-
+app.use('/public', express.static(__dirname + "./public"));
 mongoose.connect(dbConfig.url);
 const path = require ('path');
 app.use(express.static(path.join(__dirname + './views')));
