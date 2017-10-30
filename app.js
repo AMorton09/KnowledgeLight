@@ -14,8 +14,9 @@ app.listen(process.env.PORT || 3000);
 app.disable("x-powered-by");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/public', express.static(__dirname + "/views/public"));
+app.use('/public', express.static(__dirname + "./views/public"));
 mongoose.connect(dbConfig.url);
+app.use(express.static(__dirname + '../views'));
 
 console.log("hello its me i think im self aware");
 console.log("I Believe to be running on port 3000");
