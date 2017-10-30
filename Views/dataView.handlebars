@@ -1,0 +1,39 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<canvas id="chart-area" style="display: block; width: 762px; height: 381px;" width="762" height="381" class="chartjs-render-monitor">
+</canvas>
+<script>
+
+
+    var config = {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data: [{{classObj.red}},{{classObj.yellow}},{{classObj.green}}],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                    'rgba(255, 255, 0, 1)',
+                    'rgba(0, 255, 0, 1)'
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                "Red",
+
+                "Yellow",
+                "Green"
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    };
+
+    window.onload = function() {
+        var ctx = document.getElementById("chart-area").getContext("2d");
+        window.myPie = new Chart(ctx, config);
+    };
+
+
+</script>

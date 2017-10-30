@@ -48,6 +48,21 @@ app.post('/selectClass', (req, res) => {
 
 });
 
+
+
+app.post("/getData",(req,res) =>{
+
+    Class.findById(req.body.classID, function (err, classObj) {
+        if (err) throw err;
+        console.log(classObj);
+        res.render('dataView', {classObj: classObj})
+
+
+
+    });
+});
+
+
 app.post("/createClass", (req, res) => {
     console.log(req.body.className);
     let newClass = Class({
