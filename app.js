@@ -9,7 +9,7 @@ const Class = require('./mongo/models/ClassModel')
 app.engine('handlebars', hbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.listen('3000');
+app.listen(process.env.PORT || 3000);
 
 app.disable("x-powered-by");
 app.use(bodyParser.json());
