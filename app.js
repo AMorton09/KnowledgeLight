@@ -113,7 +113,7 @@ app.post("/addGreen", (req, res) => {
     Class.findById(req.body.classID, function (err, classObj) {
         if (err) throw err;
 
-        let light = classObj.Green + 1;
+        let light = classObj.green + 1;
 
 
 
