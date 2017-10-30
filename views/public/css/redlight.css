@@ -1,0 +1,12 @@
+
+.light{
+    height: 315px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #696969;
+}
+
+*{
+    background-color: #1a0b19;
+}
