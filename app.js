@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/public', express.static(__dirname + "./views/public"));
 mongoose.connect(dbConfig.url);
 const path = require ('path');
-app.use(express.static(path.join(__dirname + '.../views')));
+app.set('views', path.join(__dirname, '/Views'));
 
 console.log("hello its me i think im self aware");
 console.log("I Believe to be running on port 3000");
