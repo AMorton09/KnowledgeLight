@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser')
 const hbs = require('express-handlebars');
 const app = express();
-const dbConfig = require('./mongo/dbconfig');
+const dbConfig = require('./mongo/dbConfig.js');
 const mongoose = require('mongoose');
 const Class = require('./mongo/models/ClassModel')
 
