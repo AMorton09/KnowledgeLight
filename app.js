@@ -23,7 +23,7 @@ console.log("I Believe to be running on port 3000");
 
 app.get('/', (req, res) => {
     Class.find((err, classes) => {
-        if (err) throw err;;
+        if (err) console.log(err);
         console.log(classes);
         res.render('home', {Class: classes})
     })
@@ -38,7 +38,7 @@ app.post('/selectClass', (req, res) => {
     console.log(req.body);
     console.log(req.body.classID);
     Class.findById(req.body.classID, function (err, classObj) {
-        if (err) throw err;
+        if (err) console.log(err);
         console.log(classObj);
         res.render('redlight', {classObj: classObj})
 
@@ -53,7 +53,7 @@ app.post('/selectClass', (req, res) => {
 app.post("/getData",(req,res) =>{
 
     Class.findById(req.body.classID, function (err, classObj) {
-        if (err) throw err;
+        if (err) console.log(err);
         console.log(classObj);
         res.render('dataView', {classObj: classObj})
 
@@ -72,7 +72,7 @@ app.post("/createClass", (req, res) => {
         green: 0
     });
     newClass.save((err) => {
-        if (err) throw err;
+        if (err) console.log(err);
 
         console.log('Class saved successfully!');
     });
@@ -84,7 +84,7 @@ app.post("/addRed", (req, res) => {
     console.log(req.body.classID);
 
     Class.findById(req.body.classID, function (err, classObj) {
-        if (err) throw err;
+        if (err) console.log(err);
 
         let light = classObj.red + 1;
 
@@ -93,7 +93,7 @@ app.post("/addRed", (req, res) => {
 
 
     Class.update({ _id: classObj._id }, { red: light }, { multi: false },  (err, mongoResponse) => {
-        if (err)throw err;
+        if (err) console.log(err);
         console.log('The raw response from Mongo was ', mongoResponse);
     });
         res.render('redlight', {classObj: classObj})
@@ -106,7 +106,7 @@ app.post("/addYellow", (req, res) => {
     console.log(req.body.classID);
 
     Class.findById(req.body.classID, function (err, classObj) {
-        if (err) throw err;
+        if (err) console.log(err);
 
         let light = classObj.yellow + 1;
 
@@ -115,7 +115,7 @@ app.post("/addYellow", (req, res) => {
 
 
         Class.update({ _id: classObj._id }, { yellow: light }, { multi: false },  (err, mongoResponse) => {
-            if (err)throw err;
+            if (err)console.log(err);
             console.log('The raw response from Mongo was ', mongoResponse);
         });
         res.render('redlight', {classObj: classObj})
@@ -126,7 +126,7 @@ app.post("/addGreen", (req, res) => {
     console.log(req.body.classID);
 
     Class.findById(req.body.classID, function (err, classObj) {
-        if (err) throw err;
+        if (err) console.log(err);
 
         let light = classObj.green + 1;
 
@@ -135,7 +135,7 @@ app.post("/addGreen", (req, res) => {
 
 
         Class.update({ _id: classObj._id }, { green: light }, { multi: false },  (err, mongoResponse) => {
-            if (err)throw err;
+            if (err) console.log(err);
             console.log('The raw response from Mongo was ', mongoResponse);
         });
         res.render('redlight', {classObj: classObj})
