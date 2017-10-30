@@ -1,11 +1,17 @@
-<link rel="stylesheet" href="./public/css/home.css">
+<link rel="stylesheet" href="./public/css/home.css" xmlns="http://www.w3.org/1999/html">
 
-<form action="/addRed"  method="POST" >
-    <img src="./public/red-circle-hi.png" alt="Smiley face" class="light"/>
+<form action="/addRed" method="POST">
+    <button type="submit" class="light"><img src="./public/red-circle-hi.png" alt="Smiley face" class="light"/></button>
+    <input hidden="true" value={{classObj._id}} name="classID">
+</form >
+<br>
+<form action="/addYellow" method="POST">
+    <button type="submit" class="light"><img src="./public/yellow-circle-md.png" alt="Smiley face" class="light"/></button>
+    <input hidden="true" value={{classObj._id}} name="classID">
 </form>
 <br>
-<img src="./public/yellow-circle-md.png" alt="Smiley face" class="light"/>
-<br>
-<img src="./public/green-circle-md.png" alt="Smiley face" class="light"/>
-
+<form action="/addGreen" method="POST">
+    <button type="submit" class="light"><img src="./public/green-circle-md.png" alt="Smiley face" class="light"/></button>
+    <input hidden="true" value={{classObj._id}} name="classID">
+</form>
 
