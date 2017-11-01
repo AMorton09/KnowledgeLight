@@ -2,12 +2,12 @@
 
 <form action="/createClass" method="post">
     Class Name: <input type="text" name="className"><br>
-    <input type="submit" value="Submit">
+    <button class="btn" type="submit" value="Submit">
 </form>
 {{#each Class}}
 
     <form action="/selectClass" method="post">
      <input type="text" value={{this._id}} name="classID" hidden="true">
-        <input type="submit" class="btn" value= {{this.className}}>
+        <button type="submit" class="btn" value= {{this.className}}>
     </form>
 {{/each}}
