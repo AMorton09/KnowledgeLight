@@ -26,8 +26,10 @@
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
+    background-color: #0cf42f;
 }
 
 .closebtn:hover {
     color: black;
+    background-color: #0cf42f;
 }
