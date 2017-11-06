@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8c80b5e5-d801-4324-ad0d-3a46fc805ffa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/public/css/redlight.css" afterPath="$PROJECT_DIR$/views/public/css/redlight.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/redlight.handlebars" afterPath="$PROJECT_DIR$/views/redlight.handlebars" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,8 +82,8 @@
       <file leaf-file-name="redlight.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/public/css/redlight.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="255">
+              <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -453,12 +452,12 @@
       <workItem from="1509389699155" duration="2238000" />
       <workItem from="1509400818033" duration="1477000" />
       <workItem from="1509634891401" duration="177000" />
-      <workItem from="1510008713946" duration="1589000" />
+      <workItem from="1510008713946" duration="1655000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33370000" />
+    <option name="totallyTimeSpent" value="33436000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -881,8 +880,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/public/css/redlight.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding />
         </state>
       </provider>
