@@ -7,7 +7,7 @@
     background-color: #696969;
 }
 
-.form{
+*{
     background-color: #000000;
 }
 
@@ -15,6 +15,11 @@
     padding: 20px;
     background-color: #0cf42f;
     color: white;
+}
+strong{
+    background-color: #0cf42f;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .closebtn {
