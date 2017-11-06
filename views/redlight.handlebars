@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="public/css/redlight.css" xmlns="http://www.w3.org/1999/html">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<div class="alert alert-success">
-    <strong>Ready</strong> Please Select A Color!
+
+<div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Ready!</strong> 
 </div>
+
 <form action="/addRed" method="POST">
     <button type="submit" class="light"><img src="./public/red-circle-hi.png" alt="Smiley face" class="light"/></button>
     <input hidden="true" value={{classObj._id}} name="classID">
