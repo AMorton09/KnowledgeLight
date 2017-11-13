@@ -39,3 +39,31 @@ strong{
     color: black;
     background-color: #0cf42f;
 }
+
+.btn {
+    background: #54cc66;
+    background-image: -webkit-linear-gradient(top, #54cc66, #2b42b8);
+    background-image: -moz-linear-gradient(top, #54cc66, #2b42b8);
+    background-image: -ms-linear-gradient(top, #54cc66, #2b42b8);
+    background-image: -o-linear-gradient(top, #54cc66, #2b42b8);
+    background-image: linear-gradient(to bottom, #54cc66, #2b42b8);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    text-shadow: 4px 4px 0px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #3cfcec;
+    background-image: -webkit-linear-gradient(top, #3cfcec, #b034d9);
+    background-image: -moz-linear-gradient(top, #3cfcec, #b034d9);
+    background-image: -ms-linear-gradient(top, #3cfcec, #b034d9);
+    background-image: -o-linear-gradient(top, #3cfcec, #b034d9);
+    background-image: linear-gradient(to bottom, #3cfcec, #b034d9);
+    text-decoration: none;
+}
