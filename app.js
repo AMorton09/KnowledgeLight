@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/public', express.static(__dirname + "/views/public"));
 mongoose.connect(dbConfig.url);
-const path = require ('path');
+const path = require('path');
 app.use(express.static(path.join(__dirname + './views')));
 
 console.log("hello its me i think im self aware");
@@ -27,14 +27,25 @@ app.get('/', (req, res) => {
     Class.find((err, classes) => {
         if (err) console.log(err);
         console.log(classes);
-        res.render('home', {Class: classes})
-    })
+        res.render('home', {Class: classes});
+    });
 
 });
 
 app.get('/redLight', (req, res) => {
     res.render('redlight')
-})
+});
+
+app.get('/manage', (req, res) => {
+
+    Class.find((err, classes) => {
+        if (err) console.log(err);
+        console.log(classes);
+        res.render('manage', {Class: classes});
+    });
+
+
+});
 
 app.post('/selectClass', (req, res) => {
     console.log(req.body);
@@ -45,20 +56,74 @@ app.post('/selectClass', (req, res) => {
         res.render('redlight', {classObj: classObj})
 
 
+    });
+
+});
+
+app.post('/resetClass', (req, res) => {
+    console.log(req.body);
+    console.log(req.body.classID);
+    Class.findById(req.body.classID, function (err, classObj) {
+        if (err) console.log(err);
+        console.log(classObj);
+
+        Class.update({_id: classObj._id}, {red: 0, yellow: 0, green:0}, {multi: false}, (err, mongoResponse) => {
+            if (err) console.log(err);
+            console.log('The raw response from Mongo was ', mongoResponse);
+        });
+
+        res.redirect('/manage');
+
+
+    });
+
+});
+
+app.post('/deleteClass', (req, res) => {
+    console.log(req.body);
+    console.log(req.body.classID);
+    Class.findById(req.body.classID, function (err, classObj) {
+        if (err) console.log(err);
+        console.log(classObj);
+
+        Class.remove({ _id:classObj._id }, (err, mongoResponse) => {
+            if (err) console.log(err);
+            console.log('The raw response from Mongo was ', mongoResponse);
+        });
+
+        res.redirect('/manage');
+
 
     });
 
 });
 
 
+app.post('/renameClass', (req, res) => {
+    console.log(req.body);
+    console.log(req.body.classID);
+    Class.findById(req.body.classID, function (err, classObj) {
+        if (err) console.log(err);
+        console.log(classObj);
 
-app.post("/getData",(req,res) =>{
+        Class.update({_id: classObj._id}, {className: req.body.className }, {multi: false}, (err, mongoResponse) => {
+            if (err) console.log(err);
+            console.log('The raw response from Mongo was ', mongoResponse);
+        });
+
+        res.redirect('/manage');
+
+
+    });
+
+});
+
+app.post("/getData", (req, res) => {
 
     Class.findById(req.body.classID, function (err, classObj) {
         if (err) console.log(err);
         console.log(classObj);
         res.render('dataView', {classObj: classObj})
-
 
 
     });
@@ -91,13 +156,10 @@ app.post("/addRed", (req, res) => {
         let light = classObj.red + 1;
 
 
-
-
-
-    Class.update({ _id: classObj._id }, { red: light }, { multi: false },  (err, mongoResponse) => {
-        if (err) console.log(err);
-        console.log('The raw response from Mongo was ', mongoResponse);
-    });
+        Class.update({_id: classObj._id}, {red: light}, {multi: false}, (err, mongoResponse) => {
+            if (err) console.log(err);
+            console.log('The raw response from Mongo was ', mongoResponse);
+        });
         res.render('redlight', {classObj: classObj})
     });
 
@@ -113,11 +175,8 @@ app.post("/addYellow", (req, res) => {
         let light = classObj.yellow + 1;
 
 
-
-
-
-        Class.update({ _id: classObj._id }, { yellow: light }, { multi: false },  (err, mongoResponse) => {
-            if (err)console.log(err);
+        Class.update({_id: classObj._id}, {yellow: light}, {multi: false}, (err, mongoResponse) => {
+            if (err) console.log(err);
             console.log('The raw response from Mongo was ', mongoResponse);
         });
         res.render('redlight', {classObj: classObj})
@@ -133,10 +192,7 @@ app.post("/addGreen", (req, res) => {
         let light = classObj.green + 1;
 
 
-
-
-
-        Class.update({ _id: classObj._id }, { green: light }, { multi: false },  (err, mongoResponse) => {
+        Class.update({_id: classObj._id}, {green: light}, {multi: false}, (err, mongoResponse) => {
             if (err) console.log(err);
             console.log('The raw response from Mongo was ', mongoResponse);
         });

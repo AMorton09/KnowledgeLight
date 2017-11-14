@@ -32,6 +32,12 @@
     text-decoration: none;
 }
 
-.container{
+.classBorder{
+    border-style: solid;
+    border-width: medium;
+    border-color: #ffffff;
+}
 
+form {
+    display: inline-block; //Or display: inline;
 }

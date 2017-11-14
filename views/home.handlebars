@@ -1,13 +1,18 @@
 <link rel="stylesheet" href="public/css/home.css" xmlns="http://www.w3.org/1999/html">
 
-<form action="/createClass" method="post">
-    Class Name: <input type="text" name="className"><br>
-    <button class="btn" type="submit">Submit</button>
-</form>
-{{#each Class}}
 
-    <form action="/selectClass" method="post">
-     <input type="text" value={{this._id}} name="classID" hidden="true">
+
+
+{{#each Class}}
+    <form action="/selectClass" method="POST">
+        <input type="text" value={{this._id}} name="classID" hidden="true">
         <button type="submit" class="btn">{{this.className}}</button>
     </form>
+    <br>
 {{/each}}
+
+<div class="container">
+    <form action="/manage" method="GET">
+        <button class="btn" type="submit">Manage Classes</button>
+    </form>
+</div>

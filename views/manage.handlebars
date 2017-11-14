@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="public/css/manage.css" xmlns="http://www.w3.org/1999/html">
+
+<div class="classBorder">
+    <form action="/createClass" method="post">
+        Class Name: <input type="text" name="className"><br>
+        <button class="btn" type="submit">Create Class</button>
+    </form>
+</div>
+
+{{#each Class}}
+    <div class="classBorder">
+        <form action="/selectClass" method="post">
+            <input type="text" value={{this._id}} name="classID" hidden="true">
+            <button type="submit" class="btn">{{this.className}}</button>
+        </form>
+        <form action="/getData" method="post">
+            <input type="text" value={{this._id}} name="classID" hidden="true">
+            <button type="submit" class="btn">View Data</button>
+        </form>
+        <form action="/renameClass" method="post">
+            <input type="text" name="className">
+            <input type="text" value={{this._id}} name="classID" hidden="true">
+            <button type="submit" class="btn">Rename</button>
+        </form>
+
+        <form action="/resetClass" method="post">
+            <input type="text" value={{this._id}} name="classID" hidden="true">
+            <button type="submit" class="btn">Reset</button>
+        </form>
+
+        <form action="/deleteClass" method="post">
+            <input type="text" value={{this._id}} name="classID" hidden="true">
+            <button type="submit" class="btn">Delete</button>
+        </form>
+    </div>
+{{/each}}
+
+<br>
+
+<form action="/" method="get">
+    <button type="submit" class="btn">Home</button>
+</form>
