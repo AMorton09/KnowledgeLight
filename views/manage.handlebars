@@ -1,10 +1,12 @@
 <link rel="stylesheet" href="public/css/manage.css" xmlns="http://www.w3.org/1999/html">
 
 <div class="classBorder">
-    <form action="/createClass" method="post">
-        Class Name: <input type="text" name="className"><br>
-        <button class="btn" type="submit">Create Class</button>
-    </form>
+    <div class="newEntry">
+        <form action="/createClass" method="post">
+            Class Name: <input type="text" name="className"><br>
+            <button class="btn" type="submit">Create Class</button>
+        </form>
+    </div>
 </div>
 
 {{#each Class}}

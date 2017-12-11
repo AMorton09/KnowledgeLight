@@ -32,10 +32,19 @@
     text-decoration: none;
 }
 
+.newEntry{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: medium;
+
+}
+
 .classBorder{
-    border-style: solid;
-    border-width: medium;
-    border-color: #ffffff;
+    border-style: groove;
+    border-width: thin;
+    border-color: #fff09d;
+
+
 }
 
 form {
